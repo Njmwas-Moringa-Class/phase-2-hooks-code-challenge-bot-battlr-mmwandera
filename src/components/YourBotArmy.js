@@ -14,7 +14,7 @@ function YourBotArmy({selectedBots, releaseFromArmy, dischargeFromService}) {
               key={bot.id}
               bot={bot}
               handleClick={() => releaseFromArmy(bot)}
-              discharge={() => dischargeFromService(bot.id)}
+              discharge={dischargeFromService}
             />
           ))}
           Your Bot Army
