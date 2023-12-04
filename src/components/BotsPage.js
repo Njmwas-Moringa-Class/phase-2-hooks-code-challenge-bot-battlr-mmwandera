@@ -13,18 +13,22 @@ function BotsPage() {
       .then((data) => setBotCollection(data))
   }, []);
 
-   const addToArmy = (bot) => {
-    // Check if the bot is not already in the army
-    if (!selectedBots.some((selectedBot) => selectedBot.id === bot.id)) {
-      setSelectedBots([...selectedBots, bot]);
-    }
-  };
+function addToArmy(bot) {
+  // Check if the bot is not already in the army
+  if (!selectedBots.some(function(selectedBot) {
+    return selectedBot.id === bot.id;
+  })) {
+    setSelectedBots(selectedBots.concat([bot]));
+  }
+}
 
-  const releaseFromArmy = (botToRemove) => {
-    // Filter out the bot to be released from the army
-    const updatedArmy = selectedBots.filter((bot) => bot.id !== botToRemove.id);
-    setSelectedBots(updatedArmy);
-  };
+function releaseFromArmy(botToRemove) {
+  // Filter out the bot to be released from the army
+  const updatedArmy = selectedBots.filter(function(bot) {
+    return bot.id !== botToRemove.id;
+  });
+  setSelectedBots(updatedArmy);
+}
 
 
   return (
